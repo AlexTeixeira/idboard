@@ -1,8 +1,10 @@
-﻿using System;
+﻿using idboard_v1.views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,6 +29,10 @@ namespace idboard_v1
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
+
+            Task.Delay(TimeSpan.FromSeconds(5));
+
+            //this.Frame.Navigate(typeof(Login));
         }
 
         /// <summary>
@@ -44,5 +50,12 @@ namespace idboard_v1
             // Si vous utilisez le NavigationHelper fourni par certains modèles,
             // cet événement est géré automatiquement.
         }
+
+        public void test()
+        {
+            //NavigationService.Navigate(new Uri("views/Login.xaml", UriKind.Relative));
+        }
+
+ 
     }
 }
