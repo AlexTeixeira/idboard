@@ -20,16 +20,11 @@ namespace idboard_v1.views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class login : Page
+    public sealed partial class BlankPage1 : Page
     {
-        public login()
+        public BlankPage1()
         {
             this.InitializeComponent();
-        }
-
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

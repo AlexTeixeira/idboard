@@ -124,17 +124,31 @@ namespace idboard_v1.idboard_v1_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
-            _typeNameTable[0] = "idboard_v1.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "idboard_v1.views.Login";
+            _typeNameTable = new string[11];
+            _typeNameTable[0] = "idboard_v1.ViewModel.ViewModelLocator";
+            _typeNameTable[1] = "Object";
+            _typeNameTable[2] = "idboard_v1.ViewModel.MainViewModel";
+            _typeNameTable[3] = "GalaSoft.MvvmLight.ViewModelBase";
+            _typeNameTable[4] = "GalaSoft.MvvmLight.ObservableObject";
+            _typeNameTable[5] = "Windows.UI.Text.FontWeight";
+            _typeNameTable[6] = "System.ValueType";
+            _typeNameTable[7] = "idboard_v1.MainPage";
+            _typeNameTable[8] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[9] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[10] = "idboard_v1.views.BlankPage1";
 
-            _typeTable = new global::System.Type[4];
-            _typeTable[0] = typeof(global::idboard_v1.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::idboard_v1.views.Login);
+            _typeTable = new global::System.Type[11];
+            _typeTable[0] = typeof(global::idboard_v1.ViewModel.ViewModelLocator);
+            _typeTable[1] = typeof(global::System.Object);
+            _typeTable[2] = typeof(global::idboard_v1.ViewModel.MainViewModel);
+            _typeTable[3] = typeof(global::GalaSoft.MvvmLight.ViewModelBase);
+            _typeTable[4] = typeof(global::GalaSoft.MvvmLight.ObservableObject);
+            _typeTable[5] = typeof(global::Windows.UI.Text.FontWeight);
+            _typeTable[6] = typeof(global::System.ValueType);
+            _typeTable[7] = typeof(global::idboard_v1.MainPage);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[10] = typeof(global::idboard_v1.views.BlankPage1);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -169,8 +183,11 @@ namespace idboard_v1.idboard_v1_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::idboard_v1.MainPage(); }
-        private object Activate_3_Login() { return new global::idboard_v1.views.Login(); }
+        private object Activate_0_ViewModelLocator() { return new global::idboard_v1.ViewModel.ViewModelLocator(); }
+        private object Activate_2_MainViewModel() { return new global::idboard_v1.ViewModel.MainViewModel(); }
+        private object Activate_4_ObservableObject() { return new global::GalaSoft.MvvmLight.ObservableObject(); }
+        private object Activate_7_MainPage() { return new global::idboard_v1.MainPage(); }
+        private object Activate_10_BlankPage1() { return new global::idboard_v1.views.BlankPage1(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -182,24 +199,64 @@ namespace idboard_v1.idboard_v1_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  idboard_v1.MainPage
-                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+            case 0:   //  idboard_v1.ViewModel.ViewModelLocator
+                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_ViewModelLocator;
+                userType.AddMemberName("Main");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 1:   //  Object
                 xamlType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 2:   //  idboard_v1.ViewModel.MainViewModel
+                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
 
-            case 3:   //  idboard_v1.views.Login
+            case 3:   //  GalaSoft.MvvmLight.ViewModelBase
+                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ObservableObject"));
+                xamlType = userType;
+                break;
+
+            case 4:   //  GalaSoft.MvvmLight.ObservableObject
+                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_4_ObservableObject;
+                xamlType = userType;
+                break;
+
+            case 5:   //  Windows.UI.Text.FontWeight
+                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                xamlType = userType;
+                break;
+
+            case 6:   //  System.ValueType
+                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 7:   //  idboard_v1.MainPage
                 userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_Login;
+                userType.Activator = Activate_7_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  idboard_v1.views.BlankPage1
+                userType = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_BlankPage1;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -208,11 +265,26 @@ namespace idboard_v1.idboard_v1_XamlTypeInfo
         }
 
 
+        private object get_0_ViewModelLocator_Main(object instance)
+        {
+            var that = (global::idboard_v1.ViewModel.ViewModelLocator)instance;
+            return that.Main;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::idboard_v1.idboard_v1_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "idboard_v1.ViewModel.ViewModelLocator.Main":
+                userType = (global::idboard_v1.idboard_v1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("idboard_v1.ViewModel.ViewModelLocator");
+                xamlMember = new global::idboard_v1.idboard_v1_XamlTypeInfo.XamlMember(this, "Main", "idboard_v1.ViewModel.MainViewModel");
+                xamlMember.Getter = get_0_ViewModelLocator_Main;
+                xamlMember.SetIsReadOnly();
+                break;
+            }
             return xamlMember;
         }
     }

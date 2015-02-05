@@ -1,5 +1,4 @@
-﻿using idboard_v1.views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,9 +29,7 @@ namespace idboard_v1
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-            Task.Delay(TimeSpan.FromSeconds(5));
-
-            //this.Frame.Navigate(typeof(Login));
+         
         }
 
         /// <summary>
@@ -51,10 +48,6 @@ namespace idboard_v1
             // cet événement est géré automatiquement.
         }
 
-        public void test()
-        {
-            //NavigationService.Navigate(new Uri("views/Login.xaml", UriKind.Relative));
-        }
 
  
     }
