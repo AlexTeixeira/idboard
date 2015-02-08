@@ -62,13 +62,13 @@ namespace idboard_v1.ViewModel
         public ICommand ConnexionCommand { get; set; }
 
 
-        private void Connexion(MainViewModel main)
+        private void Connexion()
         {
-            Debug.WriteLine("Je suis " + main.idNumber);
+            Debug.WriteLine("Mon number id " + idNumber);
         }
         public MainViewModel()
         {
-            ConnexionCommand = new RelayCommand<MainViewModel>(Connexion);
+            ConnexionCommand = new RelayCommand(Connexion);
 
             //ConnexionCommand = new (callWB);
 

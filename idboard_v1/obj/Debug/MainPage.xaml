@@ -48,7 +48,6 @@
             <CheckBox Content="Enregistrer&#xA;" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,5,0,0" Width="128.33332824707" Foreground="Black" Style="{StaticResource CheckBoxLogin}"/>
             <Button
                 Command="{Binding Source={StaticResource Locator}, Path=Main.ConnexionCommand}"
-                CommandParameter="{Binding}"
                 x:Name="btn_connexion" Content="Connexion" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0" Style="{StaticResource ButtonLogin}"/>
         </StackPanel>
 
