@@ -1,1 +1,2 @@
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\idboard_v1.csproj;neutral
+C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\Model\Model.csproj;neutral

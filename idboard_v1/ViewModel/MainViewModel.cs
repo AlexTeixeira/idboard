@@ -1,8 +1,11 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Model;
 using System;
 using System.Diagnostics;
 using System.Windows.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace idboard_v1.ViewModel
 {
@@ -27,48 +30,40 @@ namespace idboard_v1.ViewModel
 
         private String idNumber;
 
+      
         public String IDNumber
         {
             get { return idNumber; }
             set
             {
-                if (idNumber != null)
+                if (idNumber != value)
                 {
                     idNumber = value;
-                    RaisePropertyChanged(() => idNumber);
+                    RaisePropertyChanged(() => IDNumber);
                 }
 
             }
         }
+
 
         private String password;
 
-        public String Password
+         public ICommand ConnexionCommand { get; set; }
+
+
+         private void Connexion(DependencyObject parameter)
         {
-            get { return password; }
-            set
-            {
-                if (password != null)
-                {
-                    password = value;
-                    RaisePropertyChanged(() => password);
-
-                }
-
-            }
-        }
-
-
-        public ICommand ConnexionCommand { get; set; }
-
-
-        private void Connexion()
-        {
-            Debug.WriteLine("Mon number id " + idNumber);
-        }
+            var passwordBox = parameter as PasswordBox;
+            var password = passwordBox.Password;
+            UserBoard userB = new UserBoard(IDNumber, password);
+            userB.Connect("http://idboard.net/idws/api/","UserBoard");
+         }
         public MainViewModel()
         {
-            ConnexionCommand = new RelayCommand(Connexion);
+            ConnexionCommand = new RelayCommand<DependencyObject>(Connexion);
+
+
+
 
             //ConnexionCommand = new (callWB);
 

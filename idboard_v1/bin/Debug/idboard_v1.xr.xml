@@ -3,7 +3,6 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="ConnexionCommand" />
-    <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="IDNumber" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -75,7 +74,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="SelectionHighlightColor" />
       <RootProperty Name="Name" />
-      <RootProperty Name="Password" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Style" />
       <RootProperty Name="Width" />
@@ -96,6 +94,7 @@
     <RootType FullName="Windows.UI.Text.FontWeight" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Command" />
+      <RootProperty Name="CommandParameter" />
       <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
@@ -252,6 +251,7 @@
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Source" />
       <RootProperty Name="Path" />
+      <RootProperty Name="ElementName" />
       <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">

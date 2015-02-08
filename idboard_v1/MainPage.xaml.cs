@@ -1,5 +1,7 @@
-﻿using System;
+﻿using idboard_v1.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,13 +25,14 @@ namespace idboard_v1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+
         public MainPage()
         {
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-         
         }
 
         /// <summary>
@@ -47,6 +50,8 @@ namespace idboard_v1
             // Si vous utilisez le NavigationHelper fourni par certains modèles,
             // cet événement est géré automatiquement.
         }
+
+ 
 
 
  
