@@ -9,27 +9,18 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace Model
 {
-    class Request
+    public abstract class Request
     {
         public String Url { get; set; }
-        public Object ApiToCall { get; set; }
+        //public Object ApiToCall { get; set; }
 
         public String Path { get; set; }
 
-        public Request(String _url, Object _apiToCall,String _path)
-        {
-
-            Url = _url;
-            ApiToCall = _apiToCall;
-            Path = _path;
-
-            RunAsync().Wait();
-        }
-
-        public async Task RunAsync()
+        public async Task<String> RunAsync(Object _apiToCall)
         {
             using (var client = new HttpClient())
             {
@@ -37,15 +28,18 @@ namespace Model
 
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage response = await client.PostAsJsonAsync(Path, ApiToCall).ConfigureAwait(false);
+                string test = JsonConvert.SerializeObject(_apiToCall);
+                HttpResponseMessage response = await client.PostAsJsonAsync(Path, _apiToCall);
 
                 if (response.IsSuccessStatusCode)
                 {
                     var stringContent = await response.Content.ReadAsStringAsync();
-                    dynamic d = JsonConvert.DeserializeObject(stringContent);
+                    return stringContent;                 
 
                 }
+
+                return null;
+
 
             }
         }

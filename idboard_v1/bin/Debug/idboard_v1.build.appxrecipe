@@ -37,11 +37,11 @@
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\Model\bin\Debug\Model.dll">
       <PackagePath>Model.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\Model\bin\Debug\System.Net.Http.Formatting.dll">
-      <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\Model\bin\Debug\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll">
+      <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\packages\Microsoft.Net.Http.2.2.22\lib\wpa81\System.Net.Http.Extensions.dll">
       <PackagePath>System.Net.Http.Extensions.dll</PackagePath>

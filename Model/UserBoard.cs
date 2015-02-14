@@ -6,24 +6,18 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class UserBoard
+    public class UserBoard : Request
     {
         public UserBoard()
         {
 
         }
 
-        public UserBoard(String _idBoard, String pass)
+        public UserBoard(String _url, String _path)
         {
-            IDBoard = _idBoard;
-            Password = pass;
-        }
-        public String IDBoard { get; set; }
-        public String Password { get; set; }
-        public void Connect(String _url, String _path)
-        {
-            Request req = new Request(_url, this,_path);
-            
+            Url = _url;
+            Path = _path;
+            //ApiToCall = this;
         }
 
         /*public String Name { get; set; }

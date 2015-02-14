@@ -1,11 +1,17 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using idboard_v1.DataModel;
 using Model;
+using Model.classes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+
 
 namespace idboard_v1.ViewModel
 {
@@ -28,6 +34,25 @@ namespace idboard_v1.ViewModel
         /// </summary>
         /// 
 
+
+        private bool ringIsActive;
+
+
+        public bool RingIsActive
+        {
+            get { return ringIsActive; }
+            set 
+            {
+                if (ringIsActive != value)
+                {
+                    ringIsActive = value;
+                    RaisePropertyChanged(() => RingIsActive);
+
+                }
+                
+            }
+        }
+        
         private String idNumber;
 
       
@@ -51,21 +76,30 @@ namespace idboard_v1.ViewModel
          public ICommand ConnexionCommand { get; set; }
 
 
-         private void Connexion(DependencyObject parameter)
+         private async void Connexion(DependencyObject parameter)
         {
+            RingIsActive = true;
             var passwordBox = parameter as PasswordBox;
             var password = passwordBox.Password;
-            UserBoard userB = new UserBoard(IDNumber, password);
-            userB.Connect("http://idboard.net/idws/api/","UserBoard");
+            UserBoard userB = new UserBoard("http://idboard.net/idws/api/", "UserBoard");
+            Login.Instance.IDBoard = IDNumber;
+            Login.Instance.Password = password;
+
+            String rep = await userB.RunAsync(Login.Instance);
+            var obj = JObject.Parse(rep);
+
+            var result = obj;
+            var resultObj = JsonConvert.DeserializeObject<UserInfo>(rep);
+            if (int.Parse(resultObj.Result.ExitCode )!= 0)
+            {
+                MessageDialog erreur = new MessageDialog("Erreur lors de la connexion");
+                await erreur.ShowAsync();
+            }
+            RingIsActive = false;
          }
         public MainViewModel()
         {
             ConnexionCommand = new RelayCommand<DependencyObject>(Connexion);
-
-
-
-
-            //ConnexionCommand = new (callWB);
 
             ////if (IsInDesignMode)
             ////{

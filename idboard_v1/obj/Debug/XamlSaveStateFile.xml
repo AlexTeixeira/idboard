@@ -1,10 +1,12 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\idboard_v1\obj\debug\intermediatexaml\idboard_v1.exe" HashGuid="80b70c09-d5fa-cff6-72d2-d033d8b1f610" />
+    <LocalAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\idboard_v1\obj\debug\intermediatexaml\idboard_v1.exe" HashGuid="139ab76f-e104-8e3b-7f51-b636cca2f40f" />
     <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.dll" HashGuid="da07be64-1093-25cd-c992-377d44b6dd02" />
     <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.extras.dll" HashGuid="28bb2089-c7a4-73bb-7a72-1ea8b02698b0" />
     <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\mvvmlightlibs.5.0.2.0\lib\wpa81\galasoft.mvvmlight.platform.dll" HashGuid="54c1f1ed-b921-337f-8ad6-f2d8c553df06" />
     <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\commonservicelocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\microsoft.practices.servicelocation.dll" HashGuid="89de7f80-26d8-a17c-5ad9-b855f81ea5b2" />
-    <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\model\bin\debug\model.dll" HashGuid="41f7a5e2-376b-71ec-d6ef-79c726ec0f1c" />
+    <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\model\bin\debug\model.dll" HashGuid="239f8e3e-fa8b-0785-1f88-61fd8436e176" />
+    <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\newtonsoft.json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="225745d8-3693-ad6f-ebd5-8845d81f8e0f" />
+    <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\microsoft.aspnet.webapi.client.5.2.2\lib\portable-wp8+netcore45+net45+wp81+wpa81\system.net.http.formatting.dll" HashGuid="be2a4785-9a6a-e28d-8cef-3eb295a45d5a" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

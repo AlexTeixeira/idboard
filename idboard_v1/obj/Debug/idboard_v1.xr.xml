@@ -2,6 +2,7 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Main" />
+    <RootPropertyPathName Name="RingIsActive" />
     <RootPropertyPathName Name="ConnexionCommand" />
     <RootPropertyPathName Name="IDNumber" />
   </Roots.PropertyPathNames>
@@ -250,9 +251,9 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Source" />
+      <RootProperty Name="Mode" />
       <RootProperty Name="Path" />
       <RootProperty Name="ElementName" />
-      <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Background" />
@@ -266,6 +267,12 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
+      <RootProperty Name="RenderTransformOrigin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="IsActive" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="idboard_v1.MainPage" />
     <RootType FullName="idboard_v1.views.BlankPage1" />
