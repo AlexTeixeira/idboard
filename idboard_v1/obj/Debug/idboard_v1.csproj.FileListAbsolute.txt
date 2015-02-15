@@ -30,9 +30,6 @@ c:\users\alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\o
 c:\users\alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\qualifiers.txt.intermediate
 c:\users\alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\users\alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\ProjectArchitectures.txt
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\GalaSoft.MvvmLight.pdb
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\GalaSoft.MvvmLight.xml
@@ -66,14 +63,6 @@ C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\o
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\System.Net.Http.Formatting\en-US\System.Net.Http.Properties.Resources.resw
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\System.Net.Http.Formatting.pri
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\System.Net.Http.Formatting\qualifiers.txt
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles.intermediate
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles.intermediate
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml.intermediate
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\System.Net.Http.Formatting\layout.resfiles
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\System.Net.Http.Formatting\layout.resfiles.intermediate
 C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\obj\Debug\System.Net.Http.Formatting\Resources.resfiles

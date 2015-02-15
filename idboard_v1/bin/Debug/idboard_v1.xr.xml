@@ -4,6 +4,8 @@
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="RingIsActive" />
     <RootPropertyPathName Name="ConnexionCommand" />
+    <RootPropertyPathName Name="SaveLoginIsChecked" />
+    <RootPropertyPathName Name="SaveLogin" />
     <RootPropertyPathName Name="IDNumber" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -88,6 +90,9 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="IsChecked" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="CommandParameter" />
       <RootProperty Name="Content" />
       <RootProperty Name="Width" />
       <RootProperty Name="Style" />

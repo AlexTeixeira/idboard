@@ -7,10 +7,13 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System.IO;
 
 
 namespace idboard_v1.ViewModel
@@ -97,9 +100,130 @@ namespace idboard_v1.ViewModel
             }
             RingIsActive = false;
          }
+
+
+         private bool saveLoginIsChecked;
+
+
+         public bool SaveLoginIsChecked
+         {
+             get { return saveLoginIsChecked; }
+             set
+             {
+                 if (saveLoginIsChecked != value)
+                 {
+                     saveLoginIsChecked = value;
+                     RaisePropertyChanged(() => SaveLoginIsChecked);
+                 }
+
+             }
+         }
+         /** Méthode d'une commance avec utilisation d'un delegate*/
+
+         private RelayCommand<DependencyObject> saveLogin;
+
+         public ICommand SaveLogin
+         {
+             get
+             {
+                 return saveLogin ??
+                  (
+                      saveLogin = new RelayCommand<DependencyObject>
+                      (
+                          (parameter) =>
+                          {
+                              if (SaveLoginIsChecked)
+                              {
+                                  var passwordBox = parameter as PasswordBox;
+                                  var password = passwordBox.Password;
+
+                                  Login.Instance.IDBoard = IDNumber;
+                                  Login.Instance.Password = password;
+
+                                  string resultObj = JsonConvert.SerializeObject(Login.Instance);
+
+                                  CreateSave(resultObj);
+
+                              }
+                              else
+                              {
+
+                              }
+                          }
+                      )
+                  );
+             }
+             //set {
+             //    if (saveLogin != value)
+             //    {
+             //        saveLogin = value;
+             //        RaisePropertyChanged(() => SaveLogin);
+             //    }
+             //}
+         }
+
+
+         private async Task CreateSave(String result)
+         {
+             // Get the text data from the textbox. 
+             byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(result.ToCharArray());
+
+             // Get the local folder.
+             StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+             // Create a new folder name DataFolder.
+             var dataFolder = await local.CreateFolderAsync("IDBoard",
+             CreationCollisionOption.OpenIfExists);
+
+             // Create a new file named DataFile.txt.
+             var file = await dataFolder.CreateFileAsync("Save.txt",
+             CreationCollisionOption.ReplaceExisting);
+
+             // Write the data from the textbox.
+             using (var s = await file.OpenStreamForWriteAsync())
+             {
+                 s.Write(fileBytes, 0, fileBytes.Length);
+             }
+         }
+
+         private async void ReadSave(DependencyObject parameter)
+         {
+             StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+             if (local != null)
+             {
+                 // Get the DataFolder folder.
+                 var dataFolder = await local.GetFolderAsync("IDBoard");
+
+                 // Get the file.
+                 var file = await dataFolder.OpenStreamForReadAsync("Save.txt");
+                 if (file != null)
+                 {
+                     SaveLoginIsChecked = true;
+                     String result;
+                     // Read the data.
+                     using (StreamReader streamReader = new StreamReader(file))
+                     {
+                         result = streamReader.ReadToEnd();
+                     }
+
+                     var obj = JObject.Parse(result);
+                     IDNumber = (String)obj["IDBoard"];
+                     var passwordBox = parameter as PasswordBox;
+                     passwordBox.Password = (String)obj["Password"];
+
+
+                 }
+
+
+             }
+         }
+
+         public ICommand getSave { get; set; }
         public MainViewModel()
         {
             ConnexionCommand = new RelayCommand<DependencyObject>(Connexion);
+            getSave = new RelayCommand<DependencyObject>(ReadSave);
 
             ////if (IsInDesignMode)
             ////{
