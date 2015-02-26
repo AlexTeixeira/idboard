@@ -74,7 +74,6 @@ namespace idboard_v1.ViewModel
         }
 
 
-        private String password;
 
          public ICommand ConnexionCommand { get; set; }
 
@@ -193,37 +192,59 @@ namespace idboard_v1.ViewModel
              if (local != null)
              {
                  // Get the DataFolder folder.
-                 var dataFolder = await local.GetFolderAsync("IDBoard");
 
-                 // Get the file.
-                 var file = await dataFolder.OpenStreamForReadAsync("Save.txt");
-                 if (file != null)
+                 try
                  {
-                     SaveLoginIsChecked = true;
-                     String result;
-                     // Read the data.
-                     using (StreamReader streamReader = new StreamReader(file))
+                     var dataFolder = await local.GetFolderAsync("IDBoard");
+
+                     // Get the file.
+                     var file = await dataFolder.OpenStreamForReadAsync("Save.txt");
+                     if (file != null)
                      {
-                         result = streamReader.ReadToEnd();
+                         SaveLoginIsChecked = true;
+                         String result;
+                         // Read the data.
+                         using (StreamReader streamReader = new StreamReader(file))
+                         {
+                             result = streamReader.ReadToEnd();
+                         }
+
+                         var obj = JObject.Parse(result);
+                         IDNumber = (String)obj["IDBoard"];
+                         var passwordBox = parameter as PasswordBox;
+                         passwordBox.Password = (String)obj["Password"];
+
+
                      }
-
-                     var obj = JObject.Parse(result);
-                     IDNumber = (String)obj["IDBoard"];
-                     var passwordBox = parameter as PasswordBox;
-                     passwordBox.Password = (String)obj["Password"];
-
-
+                 
                  }
-
+                 catch
+                 {
+                     Debug.WriteLine("Folder IDBoard not found");
+                 }
 
              }
          }
 
-         public ICommand getSave { get; set; }
+        public RelayCommand<DependencyObject> GetSave { get; set; }
+
+        private RelayCommand _showPositionCommand;
+        public RelayCommand ShowPositionCommand
+        {
+            get
+            {
+                return _showPositionCommand
+                        ?? (_showPositionCommand = new RelayCommand(
+                            () =>
+                            {
+                                Debug.WriteLine("test");
+                            }));
+            }
+        }
         public MainViewModel()
         {
             ConnexionCommand = new RelayCommand<DependencyObject>(Connexion);
-            getSave = new RelayCommand<DependencyObject>(ReadSave);
+            GetSave = new RelayCommand<DependencyObject>(ReadSave);
 
             ////if (IsInDesignMode)
             ////{

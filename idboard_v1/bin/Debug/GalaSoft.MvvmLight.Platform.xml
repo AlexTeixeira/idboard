@@ -136,6 +136,21 @@
             Windows 8 and Windows Phone Application 8.1 implementation of <see cref="T:GalaSoft.MvvmLight.Views.INavigationService"/>.
             </summary>
         </member>
+        <member name="F:GalaSoft.MvvmLight.Views.NavigationService.RootPageKey">
+            <summary>
+            The key that is returned by the <see cref="P:GalaSoft.MvvmLight.Views.NavigationService.CurrentPageKey"/> property
+            when the current Page is the root page.
+            </summary>
+        </member>
+        <member name="F:GalaSoft.MvvmLight.Views.NavigationService.UnknownPageKey">
+            <summary>
+            The key that is returned by the <see cref="P:GalaSoft.MvvmLight.Views.NavigationService.CurrentPageKey"/> property
+            when the current Page is not found.
+            This can be the case when the navigation wasn't managed by this NavigationService,
+            for example when it is directly triggered in the code behind, and the
+            NavigationService was not configured for this page type.
+            </summary>
+        </member>
         <member name="M:GalaSoft.MvvmLight.Views.NavigationService.GoBack">
             <summary>
             If possible, discards the current page and displays the previous page
