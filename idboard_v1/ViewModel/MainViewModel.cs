@@ -1,6 +1,6 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using idboard_v1.DataModel;
+using idboard_v1.DataModel.UserFolder;
 using Model;
 using Model.classes;
 using Newtonsoft.Json;
@@ -14,6 +14,7 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using System.IO;
+using GalaSoft.MvvmLight.Views;
 
 
 namespace idboard_v1.ViewModel
@@ -30,7 +31,7 @@ namespace idboard_v1.ViewModel
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase, IModel
     {
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -73,7 +74,7 @@ namespace idboard_v1.ViewModel
             }
         }
 
-
+        
 
          public ICommand ConnexionCommand { get; set; }
 
@@ -96,6 +97,15 @@ namespace idboard_v1.ViewModel
             {
                 MessageDialog erreur = new MessageDialog("Erreur lors de la connexion");
                 await erreur.ShowAsync();
+            }
+            else
+            {
+                UserInstance.Instance.FirstName = resultObj.User.FirstName;
+                UserInstance.Instance.LastName = resultObj.User.LastName;
+                UserInstance.Instance.RoleName = resultObj.User.Sites[0].Roles[1].Name;
+                callNavigationService();
+                
+
             }
             RingIsActive = false;
          }
@@ -228,23 +238,19 @@ namespace idboard_v1.ViewModel
 
         public RelayCommand<DependencyObject> GetSave { get; set; }
 
-        private RelayCommand _showPositionCommand;
-        public RelayCommand ShowPositionCommand
+        /*Commande for navigation*/
+        private INavigationService navigationService;
+
+        public void callNavigationService()
         {
-            get
-            {
-                return _showPositionCommand
-                        ?? (_showPositionCommand = new RelayCommand(
-                            () =>
-                            {
-                                Debug.WriteLine("test");
-                            }));
-            }
+            navigationService.NavigateTo("Calendar");
         }
-        public MainViewModel()
+        public MainViewModel(INavigationService navigationService)
         {
             ConnexionCommand = new RelayCommand<DependencyObject>(Connexion);
             GetSave = new RelayCommand<DependencyObject>(ReadSave);
+
+            this.navigationService = navigationService;
 
             ////if (IsInDesignMode)
             ////{

@@ -80,6 +80,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="classes\Login.cs" />
+    <Compile Include="classes\UserInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="UserBoard.cs" />

@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
-  <Roots.Interfaces>
-    <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
-  </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Main" />
     <RootPropertyPathName Name="GetSave" />
@@ -11,6 +8,16 @@
     <RootPropertyPathName Name="SaveLoginIsChecked" />
     <RootPropertyPathName Name="SaveLogin" />
     <RootPropertyPathName Name="IDNumber" />
+    <RootPropertyPathName Name="Calendar" />
+    <RootPropertyPathName Name="Info" />
+    <RootPropertyPathName Name="GetInfo" />
+    <RootPropertyPathName Name="IdNumber" />
+    <RootPropertyPathName Name="RoleName" />
+    <RootPropertyPathName Name="FirstName" />
+    <RootPropertyPathName Name="LastName" />
+    <RootPropertyPathName Name="ChangePage" />
+    <RootPropertyPathName Name="Message" />
+    <RootPropertyPathName Name="Offer" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -83,8 +90,6 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Style" />
       <RootProperty Name="Width" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="Foreground" />
@@ -116,7 +121,6 @@
       <RootProperty Name="NineGrid" />
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Property" />
@@ -255,8 +259,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
       <RootProperty Name="DataContext" />
-      <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
+      <RootProperty Name="BottomAppBar" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Source" />
@@ -264,7 +268,6 @@
       <RootProperty Name="ElementName" />
       <RootProperty Name="Path" />
     </RootType>
-    <RootType FullName="idboard_v1.Helpers.PasswordConverter" />
     <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
       <RootMethod Name="GetBehaviors" />
       <RootMethod Name="SetBehaviors" />
@@ -280,6 +283,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
+      <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="TextWrapping" />
@@ -297,6 +301,19 @@
       <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="idboard_v1.MainPage" />
-    <RootType FullName="idboard_v1.views.BlankPage1" />
+    <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
+      <RootProperty Name="IsOpen" />
+      <RootProperty Name="PrimaryCommands" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Label" />
+      <RootProperty Name="IsCompact" />
+      <RootProperty Name="Icon" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="CommandParameter" />
+    </RootType>
+    <RootType FullName="idboard_v1.views.Calendar" />
+    <RootType FullName="idboard_v1.views.Message" />
+    <RootType FullName="idboard_v1.views.Offer" />
   </Roots.RootTypes>
 </Roots>

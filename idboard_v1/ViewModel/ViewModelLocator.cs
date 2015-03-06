@@ -14,6 +14,7 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 
 namespace idboard_v1.ViewModel
@@ -42,7 +43,18 @@ namespace idboard_v1.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            var navigationService = this.CreateNavigationService();
+            SimpleIoc.Default.Register<INavigationService>(() => navigationService);
+
+            SimpleIoc.Default.Register<IDialogService, DialogService>();
+
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<InfoViewModel>();
+            SimpleIoc.Default.Register<CalendarViewModel>();
+            SimpleIoc.Default.Register<OfferViewModel>();
+            SimpleIoc.Default.Register<MessageViewModel>();
+
+
         }
 
         public MainViewModel Main
@@ -52,10 +64,55 @@ namespace idboard_v1.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
+
+        public InfoViewModel Info
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<InfoViewModel>();
+            }
+        }
+
+        public CalendarViewModel Calendar
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CalendarViewModel>();
+            }
+        }
+
+        public OfferViewModel Offer
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<OfferViewModel>();
+            }
+        }
+
+        public MessageViewModel Message
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MessageViewModel>();
+            }
+        }
         
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
+        }
+
+        private INavigationService CreateNavigationService()
+        {
+            var navigationService = new NavigationService();
+            navigationService.Configure("Calendar", typeof(views.Calendar));
+            navigationService.Configure("Offers", typeof(views.Offer));
+            navigationService.Configure("Messages", typeof(views.Message));
+
+            // navigationService.Configure("key1", typeof(OtherPage1));
+            // navigationService.Configure("key2", typeof(OtherPage2));
+
+            return navigationService;
         }
     }
 }

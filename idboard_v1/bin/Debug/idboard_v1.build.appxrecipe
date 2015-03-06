@@ -55,6 +55,14 @@
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\packages\Microsoft.Net.Http.2.2.29\lib\wpa81\System.Net.Http.Primitives.dll">
       <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\Assets\Logo.scale-140.png">
+      <PackagePath>Assets\Logo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -75,9 +83,20 @@
       <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\Assets\WideLogo.scale-140.png">
+      <PackagePath>Assets\WideLogo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\Assets\WideLogo.scale-240.png">
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\Assets\Logo.scale-240.jpg">
+      <PackagePath>Assets\Logo.scale-240.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -85,8 +104,14 @@
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\views\BlankPage1.xbf">
-      <PackagePath>views\BlankPage1.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\views\Calendar.xbf">
+      <PackagePath>views\Calendar.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\views\Message.xbf">
+      <PackagePath>views\Message.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\views\Offer.xbf">
+      <PackagePath>views\Offer.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\bin\Debug\idboard_v1.xr.xml">
       <PackagePath>idboard_v1.xr.xml</PackagePath>

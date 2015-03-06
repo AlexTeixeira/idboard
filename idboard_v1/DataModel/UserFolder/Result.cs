@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace idboard_v1.DataModel
+namespace idboard_v1.DataModel.UserFolder
 {
     public class Result
     {
