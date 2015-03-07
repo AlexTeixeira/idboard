@@ -16,7 +16,6 @@ namespace Model
     public abstract class Request
     {
         public String Url { get; set; }
-        //public Object ApiToCall { get; set; }
 
         public String Path { get; set; }
 
@@ -43,5 +42,7 @@ namespace Model
 
             }
         }
+
+
     }
 }

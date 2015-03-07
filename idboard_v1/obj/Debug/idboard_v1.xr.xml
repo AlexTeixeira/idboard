@@ -18,6 +18,11 @@
     <RootPropertyPathName Name="ChangePage" />
     <RootPropertyPathName Name="Message" />
     <RootPropertyPathName Name="Offer" />
+    <RootPropertyPathName Name="GetOffersCommand" />
+    <RootPropertyPathName Name="ListInterships" />
+    <RootPropertyPathName Name="Duration" />
+    <RootPropertyPathName Name="CompanyName" />
+    <RootPropertyPathName Name="Title" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -294,6 +299,8 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="FontStyle" />
+      <RootProperty Name="FontWeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
       <RootProperty Name="Margin" />
@@ -314,6 +321,13 @@
     </RootType>
     <RootType FullName="idboard_v1.views.Calendar" />
     <RootType FullName="idboard_v1.views.Message" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
     <RootType FullName="idboard_v1.views.Offer" />
   </Roots.RootTypes>
 </Roots>

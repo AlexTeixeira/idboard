@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class UserBoard : Request
+    public class Internships : Request
     {
-        public UserBoard()
+        public int Count { get; set; }
+
+        public int Start { get; set; }
+         public Internships()
         {
 
         }
 
-        public UserBoard(String _url, String _path)
+         public Internships(String _url, String _path)
         {
             Url = _url;
             Path = _path;
+            Count = 20;
+            Start = 0;
             //ApiToCall = this;
         }
-
     }
 }

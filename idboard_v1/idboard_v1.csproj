@@ -91,6 +91,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\InterShipsFolder\InternShips.cs" />
+    <Compile Include="DataModel\InterShipsFolder\InternshipsInfo.cs" />
     <Compile Include="DataModel\UserFolder\Result.cs" />
     <Compile Include="DataModel\UserFolder\Roles.cs" />
     <Compile Include="DataModel\UserFolder\Sites.cs" />

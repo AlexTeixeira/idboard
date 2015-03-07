@@ -21,6 +21,12 @@
                 >
                 </core:InvokeCommandAction>
             </core:EventTriggerBehavior>
+            <core:EventTriggerBehavior EventName="Loaded">
+                <core:InvokeCommandAction 
+                    Command="{Binding GetOffersCommand, Mode=OneWay}"
+                >
+                </core:InvokeCommandAction>
+            </core:EventTriggerBehavior>
         </i:Interaction.Behaviors>
 
 
@@ -44,7 +50,25 @@
         </Border>
 
 
-        <StackPanel Grid.Row="2"></StackPanel>
+        <StackPanel Grid.Row="2" Background="WhiteSmoke">
+            <ListBox ItemsSource="{Binding ListInterships}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"></TextBlock>
+                                <TextBlock Text="-" Margin="5 0 5 0"></TextBlock>
+                                <TextBlock Text="{Binding CompanyName}" FontSize="14" FontWeight="Bold"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Durée : " FontSize="10" FontStyle="Italic"  Margin="0 0 5 0"></TextBlock>
+                                <TextBlock Text="{Binding Duration}" FontSize="10" FontStyle="Italic"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 
     <Page.BottomAppBar>

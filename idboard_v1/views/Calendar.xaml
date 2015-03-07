@@ -22,6 +22,7 @@
                 >
                 </core:InvokeCommandAction>
             </core:EventTriggerBehavior>
+           
         </i:Interaction.Behaviors>
 
 
@@ -45,7 +46,9 @@
 		</Border>
 
 
-        <StackPanel Grid.Row="2"></StackPanel>
+        <StackPanel Grid.Row="2" Background="WhiteSmoke">
+            
+        </StackPanel>
     </Grid>
 
     <Page.BottomAppBar>
