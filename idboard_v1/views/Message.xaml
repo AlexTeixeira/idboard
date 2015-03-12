@@ -13,11 +13,17 @@
     DataContext="{Binding Message, Source={StaticResource Locator}}">
 
 
-    <Grid >
+    <Grid Background="#FFE2E2E2">
         <i:Interaction.Behaviors>
             <core:EventTriggerBehavior EventName="Loaded">
                 <core:InvokeCommandAction 
                     Command="{Binding Info.GetInfo, Mode=OneWay}"
+                >
+                </core:InvokeCommandAction>
+            </core:EventTriggerBehavior>
+            <core:EventTriggerBehavior EventName="Loaded">
+                <core:InvokeCommandAction 
+                    Command="{Binding GetMessage, Mode=OneWay}"
                 >
                 </core:InvokeCommandAction>
             </core:EventTriggerBehavior>
@@ -31,22 +37,59 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Border BorderThickness="0 0 0 4" BorderBrush="Black" >
-            <StackPanel Grid.Row="1" Background="#FFB6AEAE">
+        <Border BorderThickness="0 0 0 3" BorderBrush="Black" >
+            <StackPanel Grid.Row="1" >
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#FF787878"/>
+                        <GradientStop Color="#FF505050" Offset="0.5"/>
+                        <GradientStop Color="#FF646464" Offset="0.25"/>
+                        <GradientStop Color="#FF262626" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
                 <TextBlock Text="Messages" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="32"></TextBlock>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Info.LastName}" FontSize="14"></TextBlock>
-                    <TextBlock Margin ="5 0 0 0" Text="{Binding Info.FirstName}" FontSize="14"></TextBlock>
-                    <TextBlock Margin="50 0 50 0" Text="{Binding Info.RoleName}" FontSize="14"></TextBlock>
-                    <TextBlock HorizontalAlignment="Right" Text="{Binding Info.IdNumber}" FontSize="16"></TextBlock>
-                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*" />
+                        <ColumnDefinition Width="0.3*" />
+                        <ColumnDefinition Width="0.3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                        <TextBlock Text="{Binding Info.LastName}" HorizontalAlignment="Center" FontSize="14"></TextBlock>
+                        <TextBlock Margin ="5 0 0 0" Text="{Binding Info.FirstName}" FontSize="14"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Margin="50 0 50 0" HorizontalAlignment="Center" Text="{Binding Info.RoleName}" FontSize="14"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock HorizontalAlignment="Right" Text="{Binding Info.IdNumber}" FontSize="16"></TextBlock>
+                    </StackPanel>
+                </Grid>
             </StackPanel>
         </Border>
 
 
-        <StackPanel Grid.Row="2" Background="WhiteSmoke">
-            
+        <StackPanel x:Name="StackMsg" Grid.Row="2" >
+            <ListBox x:Name="ListMsg" ItemsSource="{Binding ListMessage}" SelectedItem="{Binding GetOneInternship, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"></TextBlock>
+                                <!--<TextBlock Text="-" Margin="5 0 5 0"></TextBlock>-->
+                                <!--<TextBlock Text="{Binding CompanyName}" FontSize="14" FontWeight="Bold"></TextBlock>-->
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Durée : " FontSize="10" FontStyle="Italic"  Margin="0 0 5 0"></TextBlock>
+                                <TextBlock Text="{Binding Duration}" FontSize="10" FontStyle="Italic"></TextBlock>
+                            </StackPanel>-->
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
+
     </Grid>
 
     <Page.BottomAppBar>
@@ -58,7 +101,7 @@
                 <AppBarButton Label="Refresh" IsCompact="True" Icon="Refresh" ></AppBarButton>
                 <AppBarButton Label="Next" IsCompact="True" Icon="Forward" 
                               Command="{Binding Info.ChangePage}" 
-                              CommandParameter=""/>
+                              CommandParameter="AbsenceLate"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

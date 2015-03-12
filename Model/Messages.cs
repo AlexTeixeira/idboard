@@ -8,6 +8,9 @@ namespace Model
 {
     public class Messages : Request
     {
+        public int Count { get; set; }
+
+        public int Start { get; set; }
          public Messages()
         {
 
@@ -17,7 +20,8 @@ namespace Model
         {
             Url = _url;
             Path = _path;
-            //ApiToCall = this;
+            Count = 10;
+            Start = 0;
         }
     }
 }

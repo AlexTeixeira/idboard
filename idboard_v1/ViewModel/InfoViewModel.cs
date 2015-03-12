@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml;
@@ -83,6 +84,7 @@ namespace idboard_v1.ViewModel
             }
         }
 
+
         /** Méthode d'une commance avec utilisation d'un delegate*/
 
         private RelayCommand getInfo;
@@ -97,7 +99,8 @@ namespace idboard_v1.ViewModel
                      (
                          () =>
                          {
-                             RoleName = UserInstance.Instance.RoleName;
+                             var newRoleName = Regex.Split(UserInstance.Instance.RoleName, "élèvede");
+                             RoleName = newRoleName[1];
                              FirstName = UserInstance.Instance.FirstName;
                              LastName = UserInstance.Instance.LastName;
                              IdNumber = Login.Instance.IDBoard;
@@ -107,6 +110,7 @@ namespace idboard_v1.ViewModel
             }
 
         }
+
 
         private RelayCommand<String> changePage;
 
@@ -128,8 +132,10 @@ namespace idboard_v1.ViewModel
 
         }
 
+
         /*Commande for navigation*/
         private INavigationService navigationService;
+
 
         public void callNavigationService(String view)
         {

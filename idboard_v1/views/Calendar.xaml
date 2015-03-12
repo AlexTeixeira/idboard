@@ -11,10 +11,10 @@
     mc:Ignorable="d"    
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding Calendar, Source={StaticResource Locator}}">
-    
 
 
-    <Grid >
+
+    <Grid Background="#FFE2E2E2" >
         <i:Interaction.Behaviors>
             <core:EventTriggerBehavior EventName="Loaded">
                 <core:InvokeCommandAction 
@@ -22,33 +22,284 @@
                 >
                 </core:InvokeCommandAction>
             </core:EventTriggerBehavior>
-           
+            <core:EventTriggerBehavior EventName="Loaded">
+                <core:InvokeCommandAction 
+                    Command="{Binding ChangeWeek, Mode=OneWay}"
+                    CommandParameter="Now"
+                >
+                </core:InvokeCommandAction>
+            </core:EventTriggerBehavior>
+            <core:EventTriggerBehavior EventName="Loaded">
+                <core:InvokeCommandAction 
+                    Command="{Binding GetRowDef, Mode=OneWay}"
+                    CommandParameter="{Binding ElementName=SquareDef}"
+                >
+                </core:InvokeCommandAction>
+            </core:EventTriggerBehavior>
         </i:Interaction.Behaviors>
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="0.13*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0.122*" />
+            <RowDefinition Height="0.05*" />
             <RowDefinition Height="1*" />
+            
         </Grid.RowDefinitions>
-        
-		<Border BorderThickness="0 0 0 4" BorderBrush="Black" >
-			<StackPanel Grid.Row="1" Background="#FFB6AEAE">
-				<TextBlock Text="Calendrier" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="32"></TextBlock>
-				<StackPanel Orientation="Horizontal">
-					<TextBlock Text="{Binding Info.LastName}" FontSize="14"></TextBlock>
-                    <TextBlock Margin ="5 0 0 0" Text="{Binding Info.FirstName}" FontSize="14"></TextBlock>
-                    <TextBlock Margin="50 0 50 0" Text="{Binding Info.RoleName}" FontSize="14"></TextBlock>
-                    <TextBlock HorizontalAlignment="Right" Text="{Binding Info.IdNumber}" FontSize="16"></TextBlock>
-				</StackPanel>
+
+        <Border BorderThickness="0 0 0 3" BorderBrush="Black" >
+            <StackPanel Grid.Row="1" >
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#FF787878"/>
+                        <GradientStop Color="#FF505050" Offset="0.5"/>
+                        <GradientStop Color="#FF646464" Offset="0.25"/>
+                        <GradientStop Color="#FF262626" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <TextBlock Text="Calendrier" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="32"></TextBlock>
+				<Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*" />
+                        <ColumnDefinition Width="0.3*" />
+                        <ColumnDefinition Width="0.3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                        <TextBlock Text="{Binding Info.LastName}" HorizontalAlignment="Center" FontSize="14"></TextBlock>
+                        <TextBlock Margin ="5 0 0 0" Text="{Binding Info.FirstName}" FontSize="14"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Margin="50 0 50 0" HorizontalAlignment="Center" Text="{Binding Info.RoleName}" FontSize="14"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock HorizontalAlignment="Right" Text="{Binding Info.IdNumber}" FontSize="16"></TextBlock>
+                    </StackPanel>
+				</Grid>
 			 </StackPanel>
 		</Border>
 
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <AppBarButton Command="{Binding ChangeWeek}" CommandParameter="Previous" Icon="Back" Margin="0 -5 0 0" HorizontalAlignment="Center" Style="{StaticResource AppBarButtonIdBoard}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{Binding Week, Mode=TwoWay}" FontSize="14" Foreground="Black" Margin="0 15 0 0"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <AppBarButton Command="{Binding ChangeWeek}" CommandParameter="Next" Icon="Forward"  Margin="0 -5 0 0" HorizontalAlignment="Center" Style="{StaticResource AppBarButtonIdBoard}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="2" Background="WhiteSmoke">
-            
-        </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Lundi" Foreground="Black"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="2" >
+                <TextBlock Text="Mardi" Foreground="Black"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="3">
+                <TextBlock Text="Mercredi" Foreground="Black"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="4">
+                <TextBlock Text="Jeudi" Foreground="Black"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="5" >
+                <TextBlock Text="Vendredi" Foreground="Black"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3">           
+            <Grid Grid.Column="0">    
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.3*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <!--hour definition-->
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <TextBlock Text="09:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="0" >
+                        <TextBlock Text="10:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Grid.Column="0">
+                        <TextBlock Text="11:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Grid.Column="0">
+                        <TextBlock Text="12:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5" Grid.Column="0" >
+                        <TextBlock Text="13:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6" Grid.Column="0" >
+                        <TextBlock Text="14:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="7" Grid.Column="0" >
+                        <TextBlock Text="15:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="8" Grid.Column="0" >
+                        <TextBlock Text="16:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="9" Grid.Column="0">
+                        <TextBlock Text="17:00" Foreground="Black"></TextBlock>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Background="Red" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <ItemsControl ItemsSource="{Binding Elements,Mode=TwoWay}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas></Canvas>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <!--calendar-->
+                    <!--monday-->
+                    <Border x:Name="SquareDef" Grid.Row="0" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="8" Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+
+                    <!--tuesday-->
+                    <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="8" Grid.Column="1" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+
+                    <!--wednesday-->
+                    <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="8" Grid.Column="2" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+
+                    <!--thursday-->
+                    <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                    <Border Grid.Row="8" Grid.Column="3" BorderBrush="White" BorderThickness="0 0 1 1" >
+                    </Border>
+                          
+                            
+                    <!--friday-->
+                    <Border Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                    <Border Grid.Row="8" Grid.Column="4" BorderBrush="White" BorderThickness="0 0 0 1" >
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 
     <Page.BottomAppBar>

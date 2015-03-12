@@ -81,6 +81,8 @@
   <ItemGroup>
     <Compile Include="classes\Login.cs" />
     <Compile Include="classes\UserInstance.cs" />
+    <Compile Include="Courses.cs" />
+    <Compile Include="Internship.cs" />
     <Compile Include="Internships.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

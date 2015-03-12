@@ -61,10 +61,52 @@ namespace idboard_v1.ViewModel
             }
 
         }
+
+        public InternShips getOneInternship;
+
+        public InternShips GetOneInternship
+        {
+            get { return getOneInternship; }
+            set
+            {
+                if (getOneInternship != value)
+                {
+                    getOneInternship = value;
+                    RaisePropertyChanged(() => GetOneInternship);
+
+                    ConnexionGetInternship();
+                }
+            }
+        }
+
+        public async void ConnexionGetInternship()
+        {
+            Internship intern = new Internship("http://idboard.net/idws/api/", "Internship");
+
+            var customObj = new { IDBoard = Login.Instance.IDBoard, Password = Login.Instance.Password, IDInternship = GetOneInternship.IDInternship };
+
+            String rep = await intern.RunAsync(customObj);
+            var obj = JObject.Parse(rep);
+
+            var result = obj;
+            var resultObj = JsonConvert.DeserializeObject<InternshipInfo>(rep);
+            if (int.Parse(resultObj.Result.ExitCode) != 0)
+            {
+                MessageDialog erreur = new MessageDialog("Erreur lors de la récupération des offres");
+                await erreur.ShowAsync();
+            }
+            else
+            {
+                MessageDialog info = new MessageDialog(resultObj.Internship.Title + " - " + resultObj.Internship.CompanyName +  Environment.NewLine  + resultObj.Internship.City + Environment.NewLine + Environment.NewLine + Environment.NewLine + resultObj.Internship.MissionSummary);
+                await info.ShowAsync();
+
+            }
+        }
         public OfferViewModel(INavigationService navigationService)
         {
             Info = new InfoViewModel(navigationService);
             GetOffersCommand = new RelayCommand(GetOffers);
+
         }
     }
 }

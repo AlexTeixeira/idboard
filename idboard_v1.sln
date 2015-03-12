@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idboard_v1", "idboard_v1\id
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{A1BBF19F-4F23-4A3F-BCE2-B3F93ECC5702}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74C63CF4-4A43-4BA9-BF9C-58DA1303C398}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Downloads\simple-black_128x128.png = ..\..\..\..\Downloads\simple-black_128x128.png
+		..\..\..\..\Downloads\simple-forward_128x128.png = ..\..\..\..\Downloads\simple-forward_128x128.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,2 +1,2 @@
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\idboard_v1\idboard_v1.csproj;neutral
-C:\Users\Alexandre\documents\visual studio 2013\Projects\idboard_v1\Model\Model.csproj;neutral
+C:\Users\Alexandre\Documents\Visual Studio 2013\Projects\idboard_v1\idboard_v1\idboard_v1.csproj;neutral
+C:\Users\Alexandre\Documents\Visual Studio 2013\Projects\idboard_v1\Model\Model.csproj;neutral

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="idboard_v1.views.Offer"
+    x:Class="idboard_v1.views.AbsenceLate"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:idboard_v1.views"
@@ -10,7 +10,7 @@
     xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
     mc:Ignorable="d"     
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    DataContext="{Binding Offer, Source={StaticResource Locator}}">
+    DataContext="{Binding AbsenceLate, Source={StaticResource Locator}}">
 
 
     <Grid Background="#FFE2E2E2">
@@ -30,10 +30,11 @@
         </i:Interaction.Behaviors>
 
 
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
-            
+
         </Grid.RowDefinitions>
 
         <Border BorderThickness="0 0 0 3" BorderBrush="Black" >
@@ -47,7 +48,7 @@
                         <GradientStop Color="#FF262626" Offset="0.75"/>
                     </LinearGradientBrush>
                 </StackPanel.Background>
-                <TextBlock Text="Offres" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="32"></TextBlock>
+                <TextBlock Text="Retards et Absences" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="32"></TextBlock>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.3*" />
@@ -68,28 +69,39 @@
             </StackPanel>
         </Border>
 
-
-        <StackPanel Grid.Row="2" >
-            <ListBox x:Name="ListOffer" Margin="0,0,0,0" ItemsSource="{Binding ListInterships}" SelectedItem="{Binding GetOneInternship, Mode=TwoWay}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"></TextBlock>
-                                    <TextBlock Text="-" Margin="5 0 5 0"></TextBlock>
-                                    <TextBlock Text="{Binding CompanyName}" FontSize="14" FontWeight="Bold"></TextBlock>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Durée : " FontSize="10" FontStyle="Italic"  Margin="0 0 5 0"></TextBlock>
-                                    <TextBlock Text="{Binding Duration}" FontSize="10" FontStyle="Italic"></TextBlock>
-                                </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </StackPanel>
         
+        <Pivot Grid.Row="2">
+            <PivotItem  Header="Absence">
+                <Grid>
+                    <StackPanel Grid.Row="2" >
+                        <TextBlock TextWrapping="Wrap" Text="Raison" Margin="0,35,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13.333" Foreground="Black" RenderTransformOrigin="0.525,-4.687"/>
+                        <TextBox Text="{Binding Raison, Mode=TwoWay}" x:Name="box_idboard" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="350" Style="{StaticResource TextBoxLogin}"/>
+                        <TextBlock TextWrapping="Wrap" Text="Jour de début" Margin="0,35,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13.333" Foreground="Black" RenderTransformOrigin="0.525,-4.687"/>
+                        <DatePicker Date="{Binding DateBegin, Mode=TwoWay}" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource DatePickerIDboard}"/>
+                        <TextBlock TextWrapping="Wrap" Text="Jour de Fin" Margin="0,35,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13.333" Foreground="Black" RenderTransformOrigin="0.525,-4.687"/>
+                        <DatePicker Date="{Binding DateEnd, Mode=TwoWay}" Margin="0,10,0,35" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource DatePickerIDboard}"/>
+                        <Button
+                Command="{Binding Source={StaticResource Locator}, Path=AbsenceLate.SendAbsence}"
+                x:Name="btn_connexion" Content="Envoyer" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0" Style="{StaticResource ButtonLogin}" />
 
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Retard">
+                <Grid>
+                    <StackPanel Grid.Row="2" >
+                        <TextBlock TextWrapping="Wrap" Text="Raison" Margin="0,35,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13.333" Foreground="Black" RenderTransformOrigin="0.525,-4.687"/>
+                        <TextBox Text="{Binding Raison, Mode=TwoWay}" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="350" Style="{StaticResource TextBoxLogin}"/>
+                        <TextBlock TextWrapping="Wrap" Text="Heure d'arriver" Margin="0,35,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13.333" Foreground="Black" RenderTransformOrigin="0.525,-4.687"/>
+                        <TimePicker Time="{Binding Hour, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TimePickerIdBoard}"></TimePicker>
+                        <Button
+                Command="{Binding Source={StaticResource Locator}, Path=AbsenceLate.SendLate}"
+                Content="Envoyer" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0" Style="{StaticResource ButtonLogin}" />
+
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+        </Pivot>
     </Grid>
 
     <Page.BottomAppBar>
@@ -97,11 +109,11 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton Label="Previous" IsCompact="True" Icon="Back" 
                               Command="{Binding Info.ChangePage}" 
-                              CommandParameter="Calendar"/>
-                <AppBarButton Label="Refresh" IsCompact="True" Icon="Refresh" ></AppBarButton>
-                <AppBarButton Label="Next" IsCompact="True" Icon="Forward" 
-                              Command="{Binding Info.ChangePage}" 
                               CommandParameter="Messages"/>
+                <AppBarButton Label="Refresh" IsCompact="True" Icon="Refresh" ></AppBarButton>
+                <!--<AppBarButton Label="Next" IsCompact="True" Icon="Forward" 
+                              Command="{Binding Info.ChangePage}" 
+                              CommandParameter="Messages"/>-->
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

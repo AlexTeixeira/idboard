@@ -53,6 +53,7 @@ namespace idboard_v1.ViewModel
             SimpleIoc.Default.Register<CalendarViewModel>();
             SimpleIoc.Default.Register<OfferViewModel>();
             SimpleIoc.Default.Register<MessageViewModel>();
+            SimpleIoc.Default.Register<AbsenceLateViewModel>();
 
 
         }
@@ -96,6 +97,14 @@ namespace idboard_v1.ViewModel
                 return ServiceLocator.Current.GetInstance<MessageViewModel>();
             }
         }
+
+        public AbsenceLateViewModel AbsenceLate
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AbsenceLateViewModel>();
+            }
+        }
         
         public static void Cleanup()
         {
@@ -108,6 +117,7 @@ namespace idboard_v1.ViewModel
             navigationService.Configure("Calendar", typeof(views.Calendar));
             navigationService.Configure("Offers", typeof(views.Offer));
             navigationService.Configure("Messages", typeof(views.Message));
+            navigationService.Configure("AbsenceLate", typeof(views.AbsenceLate));
 
             // navigationService.Configure("key1", typeof(OtherPage1));
             // navigationService.Configure("key2", typeof(OtherPage2));

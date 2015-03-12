@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -21,13 +20,11 @@ namespace idboard_v1.views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class Calendar : Page
+    public sealed partial class AbsenceLate : Page
     {
-        public Calendar()
+        public AbsenceLate()
         {
             this.InitializeComponent();
-
-            
         }
 
         /// <summary>
@@ -38,9 +35,5 @@ namespace idboard_v1.views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
-
-        public void CreateCalendar() { }
-
-
     }
 }

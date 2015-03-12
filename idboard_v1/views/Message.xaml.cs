@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,9 @@ namespace idboard_v1.views
         public Message()
         {
             this.InitializeComponent();
+            var scaleFactor = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+            ListMsg.Height = (Window.Current.Bounds.Height * scaleFactor) * 0.7;
+            StackMsg.Height = (Window.Current.Bounds.Height * scaleFactor) * 0.75;
         }
 
         /// <summary>
