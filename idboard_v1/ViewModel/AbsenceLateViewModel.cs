@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 
 namespace idboard_v1.ViewModel
@@ -34,9 +36,9 @@ namespace idboard_v1.ViewModel
             }
         }
 
-        private DateTime dateBegin = DateTime.Today;
+        private DateTimeOffset dateBegin;
 
-        public DateTime DateBegin
+        public DateTimeOffset DateBegin
         {
             get { return dateBegin; }
             set
@@ -51,9 +53,9 @@ namespace idboard_v1.ViewModel
             }
         }
 
-        private DateTime dateEnd = DateTime.Today;
+        private DateTimeOffset dateEnd;
 
-        public DateTime DateEnd
+        public DateTimeOffset DateEnd
         {
             get { return dateEnd; }
             set
@@ -94,8 +96,14 @@ namespace idboard_v1.ViewModel
 
         public async void Absence()
         {
-            string text = "Bonjour," + Environment.NewLine + Environment.NewLine + UserInstance.Instance.LastName + " " + UserInstance.Instance.FirstName + " sera absence du " + DateBegin + " au " + DateEnd + Environment.NewLine + Environment.NewLine + " Raison : " + Raison; ;
-            var mailto = new Uri("mailto:?to=teixeiraperso@gmail.com&subject=Absence&body=" + text);
+            DateTime begin = DateBegin.DateTime;
+            DateTime end = DateEnd.DateTime;
+            var message = new StringBuilder();
+            message.AppendLine("Bonjour,");
+            message.AppendLine(UserInstance.Instance.LastName + " " + UserInstance.Instance.FirstName + " sera absence du " + begin.ToString("dd-MM-yyyy") + " au " + end.ToString("dd-MM-yyyy"));
+            message.AppendLine(" Raison : " + Raison);
+
+            var mailto = new Uri("mailto:?to=teixeiraperso@gmail.com&subject=Absence&body=" + message);
             await Windows.System.Launcher.LaunchUriAsync(mailto);
         }
         public AbsenceLateViewModel(INavigationService navigationService)
@@ -104,6 +112,8 @@ namespace idboard_v1.ViewModel
             SendAbsence = new RelayCommand(Absence);
             SendLate = new RelayCommand(Late);
 
+            DateBegin = DateTime.Today;
+            DateEnd = DateTime.Today;
         }
     }
 }

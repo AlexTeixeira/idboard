@@ -35,5 +35,10 @@ namespace idboard_v1.views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void DatePicker_DateChanged(object sender, DatePickerValueChangedEventArgs e)
+        {
+
+        }
     }
 }

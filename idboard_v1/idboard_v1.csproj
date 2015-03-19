@@ -105,6 +105,8 @@
     <Compile Include="DataModel\UserFolder\User.cs" />
     <Compile Include="DataModel\UserFolder\UserInfo.cs" />
     <Compile Include="Helpers\Date.cs" />
+    <Compile Include="Helpers\DateTimeToDateTimeOffsetConverter.cs" />
+    <Compile Include="Helpers\DateTimeToTimeSpanConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

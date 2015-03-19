@@ -305,7 +305,7 @@
     <Page.BottomAppBar>
         <CommandBar IsOpen="false">
             <CommandBar.PrimaryCommands>
-                <AppBarButton Label="Previous" IsCompact="True" Icon="Back" />
+                <!--<AppBarButton Label="Previous" IsCompact="True" Icon="Back" />-->
                 <AppBarButton Label="Refresh" IsCompact="True" Icon="Refresh" ></AppBarButton>
                 <AppBarButton Label="Next" IsCompact="True" Icon="Forward" 
                               Command="{Binding Info.ChangePage}" 

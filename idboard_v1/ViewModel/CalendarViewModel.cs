@@ -103,28 +103,46 @@ namespace idboard_v1.ViewModel
                               }
                               else
                               {
+                                  Elements = new ObservableCollection<UIElement>();
+                                  int i =0;
                                   foreach (Course course in resultObj.Courses)
                                   {
+                                      /*get date start and date end of a course*/
                                       DateTime dateS = Convert.ToDateTime(course.DateStart);
                                       DateTime dateE = Convert.ToDateTime(course.DateEnd);
-
-                                      double marginWidth = (double)(dateS.DayOfWeek);
+                                      
+                                      /*calculate position of the course*/
+                                      double marginWidth = (double)(dateS.DayOfWeek-1);
                                       TimeSpan timeS = (dateS.TimeOfDay);
                                       TimeSpan timeE = (dateE.TimeOfDay);
-                                      double buttonHeigh = (double)(timeE.Hours) - (double)(timeS.Hours);
+                                      double trueHeigh = (double)(timeE.Hours) - (double)(timeS.Hours);
+                                      double marginTop = (double)(timeS.Hours) - 9.0;
 
-                                      Button btn = new Button();
-                                      btn.Height = height * (buttonHeigh+1.4);
-                                      btn.Width = width;
-                                      Thickness margin = btn.Margin;
-                                      btn.BorderThickness = new Thickness(0.0);
-                                      margin.Left = width * (marginWidth-1);
-                                      margin.Top = height * (buttonHeigh-0.15);
-                                      btn.Margin = margin;
-                                      btn.Content = course.Name;
-                                      btn.Background = new SolidColorBrush(Colors.Gray);
-                                      Elements = new ObservableCollection<UIElement>();
-                                      Elements.Add(btn);
+                                      /*add textblock for the title */
+                                      TextBlock title = new TextBlock();
+                                      title.Text = course.Name + "\n\n" + course.Teacher;
+                                      title.Foreground = new SolidColorBrush(Colors.Black);
+                                      title.VerticalAlignment = VerticalAlignment.Center;
+                                      title.HorizontalAlignment = HorizontalAlignment.Center;
+                                      title.TextWrapping = TextWrapping.Wrap;
+
+                                      /*create border for each border*/
+                                      Border myBorder = new Border();
+                                      myBorder.BorderBrush = new SolidColorBrush(Colors.Black);
+                                      myBorder.BorderThickness = new Thickness(2);
+                                      myBorder.Background = ColorToBrush(course.BackColor);
+                                      myBorder.Opacity = 20;
+                                      myBorder.Height = (height * trueHeigh);
+                                      myBorder.Width = width;
+                                      Thickness margin = myBorder.Margin;
+                                      margin.Top = height * marginTop;
+                                      margin.Left = width * (marginWidth);
+                                      myBorder.Margin = margin;
+                                      
+                                      myBorder.Child = title;
+
+                                      elements.Add(myBorder);
+                                      i++;
                                   }
 
 
@@ -157,7 +175,21 @@ namespace idboard_v1.ViewModel
              }
          }
 
-         
+         public static Brush ColorToBrush(string color) // color = "#E7E44D"
+         {
+             color = color.Replace("#", "");
+             if (color.Length == 6)
+             {
+                 return new SolidColorBrush(ColorHelper.FromArgb(255,
+                     byte.Parse(color.Substring(0, 2), System.Globalization.NumberStyles.HexNumber),
+                     byte.Parse(color.Substring(2, 2), System.Globalization.NumberStyles.HexNumber),
+                     byte.Parse(color.Substring(4, 2), System.Globalization.NumberStyles.HexNumber)));
+             }
+             else
+             {
+                 return null;
+             }
+         }
         public CalendarViewModel(INavigationService navigationService)
         {
             Info = new InfoViewModel(navigationService);
