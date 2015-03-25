@@ -110,7 +110,7 @@
                 <AppBarButton Label="Previous" IsCompact="True" Icon="Back" 
                               Command="{Binding Info.ChangePage}" 
                               CommandParameter="Messages"/>
-                <AppBarButton Label="Refresh" IsCompact="True" Icon="Refresh" ></AppBarButton>
+                <!--<AppBarButton Label="Refresh" IsCompact="True" Icon="Refresh" ></AppBarButton>-->
                 <!--<AppBarButton Label="Next" IsCompact="True" Icon="Forward" 
                               Command="{Binding Info.ChangePage}" 
                               CommandParameter="Messages"/>-->

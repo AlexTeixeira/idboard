@@ -16,10 +16,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.Data.Xml.Dom;
 using Windows.UI;
+using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 namespace idboard_v1.ViewModel
 {
@@ -140,7 +143,7 @@ namespace idboard_v1.ViewModel
                                       myBorder.Margin = margin;
                                       
                                       myBorder.Child = title;
-
+                                      myBorder.PointerPressed += myBorder_PointerPressed;
                                       elements.Add(myBorder);
                                       i++;
                                   }
@@ -151,6 +154,15 @@ namespace idboard_v1.ViewModel
                       )
                   );
              }
+         }
+
+         private async void myBorder_PointerPressed(object sender,PointerRoutedEventArgs e)
+         {
+             Border border = (Border)sender;
+             TextBlock textB = (TextBlock)border.Child;
+
+             MessageDialog erreur = new MessageDialog(textB.Text);
+             await erreur.ShowAsync();
          }
         
          private RelayCommand<DependencyObject> getRowDef;
