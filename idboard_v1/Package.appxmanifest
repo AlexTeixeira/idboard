@@ -29,7 +29,7 @@
         <Rule Match="https://idboard.net/idws/api" Type="include" />
       </ApplicationContentUriRules>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTasks.Class1">
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask.BackgroundMessage">
           <BackgroundTasks>
             <Task Type="timer" />
           </BackgroundTasks>

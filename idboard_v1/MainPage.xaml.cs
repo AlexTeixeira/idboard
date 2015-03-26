@@ -44,7 +44,7 @@ namespace idboard_v1
         /// Ce paramètre est généralement utilisé pour configurer la page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //this.RegisterBackgroundTask();
+            this.RegisterBackgroundTask();
             // TODO: préparer la page pour affichage ici.
 
             // TODO: si votre application comporte plusieurs pages, assurez-vous que vous
@@ -73,15 +73,12 @@ namespace idboard_v1
                 taskBuilder.Name = taskName;
                 taskBuilder.TaskEntryPoint = taskEntryPoint;
                 taskBuilder.SetTrigger(new TimeTrigger(15, false));
-                Debug.WriteLine(new TimeTrigger(15, false));
-                Debug.WriteLine(taskBuilder);
                 var registration= taskBuilder.Register();
-                Debug.WriteLine( registration.Trigger );
             }
         }
 
-        private const string taskName = "Class1";
-        private const string taskEntryPoint = "BackgroundTasks.Class1";
+        private const string taskName = "BackgroundMessage";
+        private const string taskEntryPoint = "BackgroundTask.BackgroundMessage";
 
 
         private void box_password_PasswordChanged(object sender, RoutedEventArgs e)

@@ -35,7 +35,7 @@
         <Rule Match="https://idboard.net/idws/api" Type="include" />
       </ApplicationContentUriRules>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTasks.Class1">
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask.BackgroundMessage">
           <BackgroundTasks>
             <Task Type="timer" />
           </BackgroundTasks>
@@ -51,6 +51,12 @@
       <InProcessServer>
         <Path>CLRHost.dll</Path>
         <ActivatableClass ActivatableClassId="BackgroundTask.Class1" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.BackgroundMessage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.MessageFolder.Result" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.MessageFolder.MessagesInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.MessageFolder.MyMessages" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.CoursesFolder.Course" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.CoursesFolder.CoursesInfo" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>

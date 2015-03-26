@@ -38,12 +38,21 @@
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundMessage.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Model\CoursesFolder\Course.cs" />
+    <Compile Include="Model\CoursesFolder\CoursesInfo.cs" />
+    <Compile Include="Model\MessageFolder\MessagesInfo.cs" />
+    <Compile Include="Model\MessageFolder\MyMessages.cs" />
+    <Compile Include="Model\MessageFolder\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,9 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\idboard_v1\obj\debug\intermediatexaml\idboard_v1.exe" HashGuid="48f7a348-f46a-ae9f-84c1-5096da137d8d" />
+    <LocalAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\idboard_v1\obj\debug\intermediatexaml\idboard_v1.exe" HashGuid="e967e190-80ad-102a-7db9-1714b39771bc" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windowsphoneapp\v8.1\extensionsdks\behaviorsxamlsdkmanaged\12.0\references\commonconfiguration\neutral\microsoft.xaml.interactions.dll" HashGuid="95a94f94-3917-d473-4f7c-18c4bd437046" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windowsphoneapp\v8.1\extensionsdks\behaviorsxamlsdkmanaged\12.0\references\commonconfiguration\neutral\microsoft.xaml.interactivity.dll" HashGuid="d25f59e6-dd81-900a-0dfc-55b39f6898ef" />
-    <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\backgroundtask\bin\debug\backgroundtask.winmd" HashGuid="776996bc-fb11-45f7-2f04-57c6a1269d30" />
+    <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\backgroundtask\bin\debug\backgroundtask.winmd" HashGuid="45587bff-18ee-f9df-1864-8ff93be367cf" />
     <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\mvvmlightlibs.5.1.1.0\lib\wpa81\galasoft.mvvmlight.dll" HashGuid="d702f8e6-9904-1220-8de7-be8614bf93e8" />
     <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\mvvmlightlibs.5.1.1.0\lib\wpa81\galasoft.mvvmlight.extras.dll" HashGuid="f59e2cac-89a1-06f4-bbe7-18857251ef78" />
     <ReferenceAssembly PathName="c:\users\alexandre\documents\visual studio 2013\projects\idboard_v1\packages\mvvmlightlibs.5.1.1.0\lib\wpa81\galasoft.mvvmlight.platform.dll" HashGuid="27c4f135-c15f-18a2-cb9f-847748d33bdb" />
