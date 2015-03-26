@@ -6,6 +6,8 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.Phone.UI.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -38,6 +40,48 @@ namespace idboard_v1.views
         /// Ce paramètre est généralement utilisé pour configurer la page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private async void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            Frame frame = Window.Current.Content as Frame;
+            if (frame == null)
+            {
+                return;
+            }
+
+            if (frame.CanGoBack)
+            {
+                e.Handled = true;
+                MessageDialog dlg = new MessageDialog("Êtes-vous sur de vouloir vous déconnectez?", "Warning");
+                dlg.Commands.Add(new UICommand("Yes", new UICommandInvokedHandler(CommandHandler1)));
+                dlg.Commands.Add(new UICommand("No", new UICommandInvokedHandler(CommandHandler1)));
+
+
+
+
+                await dlg.ShowAsync();
+            }
+        }
+
+        private void CommandHandler1(IUICommand command)
+        {
+            var label = command.Label;
+            switch (label)
+            {
+                case "Yes":
+                    {
+                        this.Frame.Navigate(typeof(MainPage));
+                        break;
+                    }
+                case "No":
+                    {
+                        break;
+                    }
+
+            }
+
         }
     }
 }

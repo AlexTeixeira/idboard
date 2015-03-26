@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Messages : Request
+    public sealed class Messages : Request
     {
         public int Count { get; set; }
 

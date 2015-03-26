@@ -103,7 +103,7 @@ namespace idboard_v1.ViewModel
             message.AppendLine(UserInstance.Instance.LastName + " " + UserInstance.Instance.FirstName + " sera absence du " + begin.ToString("dd-MM-yyyy") + " au " + end.ToString("dd-MM-yyyy"));
             message.AppendLine(" Raison : " + Raison);
 
-            var mailto = new Uri("mailto:?to=teixeiraperso@gmail.com&subject=Absence&body=" + message);
+            var mailto = new Uri("mailto:?to=scolarite@ieid.eu&subject=Absence&body=" + message);
             await Windows.System.Launcher.LaunchUriAsync(mailto);
         }
         public AbsenceLateViewModel(INavigationService navigationService)

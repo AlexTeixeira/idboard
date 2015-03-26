@@ -46,7 +46,8 @@ namespace idboard_v1.ViewModel
             var navigationService = this.CreateNavigationService();
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
-            SimpleIoc.Default.Register<IDialogService, DialogService>();
+            if (!SimpleIoc.Default.IsRegistered<IDialogService>())
+                SimpleIoc.Default.Register<IDialogService, DialogService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<InfoViewModel>();

@@ -69,7 +69,7 @@
             </StackPanel>
         </Border>
 
-        
+
         <Pivot Grid.Row="2">
             <PivotItem  Header="Absence">
                 <Grid>

@@ -9,15 +9,17 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Background;
 using Windows.UI.Popups;
 
 namespace Model
 {
-    public abstract class Request
+    public abstract class Request 
     {
-        public String Url { get; set; }
+        public static String Url { get; set; }
 
-        public String Path { get; set; }
+        public static String Path { get; set; }
+
 
         public async Task<String> RunAsync(Object _apiToCall)
         {

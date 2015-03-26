@@ -23,7 +23,7 @@
             </core:EventTriggerBehavior>
             <core:EventTriggerBehavior EventName="Loaded">
                 <core:InvokeCommandAction 
-                    Command="{Binding GetMessage, Mode=OneWay}"
+                    Command="{Binding GetMessageCommand, Mode=OneWay}"
                 >
                 </core:InvokeCommandAction>
             </core:EventTriggerBehavior>
@@ -71,7 +71,7 @@
 
 
         <StackPanel x:Name="StackMsg" Grid.Row="2" >
-            <ListBox x:Name="ListMsg" ItemsSource="{Binding ListMessage}" SelectedItem="{Binding GetOneInternship, Mode=TwoWay}">
+            <ListBox x:Name="ListMsg" ItemsSource="{Binding ListMessage}"  SelectedItem="{Binding DisplayMessage, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">

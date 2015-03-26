@@ -98,11 +98,10 @@ namespace idboard_v1.ViewModel
                 MessageDialog erreur = new MessageDialog("Erreur lors de la connexion");
                 await erreur.ShowAsync();
             }
-            else
             {
                 UserInstance.Instance.FirstName = resultObj.User.FirstName;
                 UserInstance.Instance.LastName = resultObj.User.LastName;
-                UserInstance.Instance.RoleName = resultObj.User.Sites[0].Roles[1].Name;
+                UserInstance.Instance.RoleName = resultObj.User.Sites[0].Roles[resultObj.User.Sites[0].Roles.Count - 1].Name;
                 callNavigationService();
                 
 
