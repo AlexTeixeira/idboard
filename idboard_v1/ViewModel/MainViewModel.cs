@@ -88,7 +88,15 @@ namespace idboard_v1.ViewModel
             Login.Instance.IDBoard = IDNumber;
             Login.Instance.Password = password;
 
-            String rep = await userB.RunAsync(Login.Instance);
+            String rep; 
+                
+            try{
+               rep =  await userB.RunAsync(Login.Instance);
+            }catch(Exception e){
+                Debug.WriteLine(e);
+                rep = "";
+            }
+                
             var obj = JObject.Parse(rep);
 
             var result = obj;
@@ -223,7 +231,10 @@ namespace idboard_v1.ViewModel
                          var passwordBox = parameter as PasswordBox;
                          passwordBox.Password = (String)obj["Password"];
 
-
+                         if (!String.IsNullOrEmpty(IDNumber) && !String.IsNullOrEmpty((String)obj["Password"]))
+                         {
+                             Connexion(parameter);
+                         }
                      }
                  
                  }
@@ -232,6 +243,7 @@ namespace idboard_v1.ViewModel
                      Debug.WriteLine("Folder IDBoard not found");
                  }
 
+                 
              }
          }
 

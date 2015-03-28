@@ -107,6 +107,7 @@ namespace idboard_v1.ViewModel
                               else
                               {
                                   Elements = new ObservableCollection<UIElement>();
+
                                   int i =0;
                                   foreach (Course course in resultObj.Courses)
                                   {
@@ -144,7 +145,7 @@ namespace idboard_v1.ViewModel
                                       
                                       myBorder.Child = title;
                                       myBorder.PointerPressed += myBorder_PointerPressed;
-                                      elements.Add(myBorder);
+                                      Elements.Add(myBorder);
                                       i++;
                                   }
 
@@ -196,15 +197,45 @@ namespace idboard_v1.ViewModel
                      byte.Parse(color.Substring(0, 2), System.Globalization.NumberStyles.HexNumber),
                      byte.Parse(color.Substring(2, 2), System.Globalization.NumberStyles.HexNumber),
                      byte.Parse(color.Substring(4, 2), System.Globalization.NumberStyles.HexNumber)));
-             }
+             }  
              else
              {
                  return null;
              }
          }
+
+         private RelayCommand<String> changePage;
+
+         public ICommand ChangePage
+         {
+             get
+             {
+                 return changePage ??
+                  (
+                      changePage = new RelayCommand<String>
+                      (
+                          (view) =>
+                          {
+                              callNavigationService(view);
+                          }
+                      )
+                  );
+             }
+
+         }
+
+         private INavigationService navigationService;
+
+
+         public void callNavigationService(String view)
+         {
+             Elements.Clear();
+             navigationService.NavigateTo(view);
+         }
         public CalendarViewModel(INavigationService navigationService)
         {
             Info = new InfoViewModel(navigationService);
+            this.navigationService = navigationService;
             //Date.GetWeek(DateTime.Today, new CultureInfo("fr-FR"), out begining, out end);
             //Week = begining.Date.ToString("d") + " - " + end.Date.ToString("d");
         }

@@ -16,13 +16,18 @@ using System.Net;
 using BackgroundTask.Model.MessageFolder;
 using Windows.UI.Notifications;
 using BackgroundTask.Model.CoursesFolder;
+using System.Globalization;
 
 namespace BackgroundTask
 {
     public sealed class BackgroundMessage : IBackgroundTask
     {
         public static string IDNumber { get; set; }
+        
         public static string Password { get; set; }
+
+        private DateTime weekStart;
+        private DateTime endOfWeek;
 
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
@@ -33,7 +38,13 @@ namespace BackgroundTask
             var msg = await GetMessage(path,customObj);
 
             path = "Courses";
-            var customObj2 = new { IDBoard = IDNumber, Password = Password, DateStart = DateTime.Today.AddDays(7).ToString("o"), DateEnd = DateTime.Today.AddDays(14).ToString("o") };
+            CultureInfo cultureInfo = new CultureInfo("fr-FR");
+            var firstDayOfWeek = cultureInfo.DateTimeFormat.FirstDayOfWeek;
+            DateTime now = DateTime.Today.AddDays(7);
+            int offset = firstDayOfWeek - now.DayOfWeek;
+            weekStart = now.AddDays(offset);
+            endOfWeek = weekStart.AddDays(6);
+            var customObj2 = new { IDBoard = IDNumber, Password = Password, DateStart = weekStart.ToString("o"), DateEnd = endOfWeek.ToString("o") };
 
             var calendar = await GetMessage(path, customObj2);
 

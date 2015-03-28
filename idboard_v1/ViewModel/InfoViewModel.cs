@@ -136,29 +136,6 @@ namespace idboard_v1.ViewModel
         }
 
 
-        private RelayCommand displayMenu;
-
-        public ICommand DisplayMenu
-        {
-            get
-            {
-                return displayMenu ??
-                 (
-                     displayMenu = new RelayCommand
-                     (
-                         async () =>
-                         {
-
-                             var message = string.Join(Environment.NewLine, menu);
-                             MessageDialog erreur = new MessageDialog(message);
-                             await erreur.ShowAsync();
-                         }
-                     )
-                 );
-            }
-
-        }
-
 
         /*Commande for navigation*/
         private INavigationService navigationService;
@@ -171,10 +148,6 @@ namespace idboard_v1.ViewModel
         public InfoViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
-            menu.Add("Calendrier");
-            menu.Add("Offre");
-            menu.Add("Message");
-            menu.Add("Absence/Retard");
 
             ////if (IsInDesignMode)
             ////{

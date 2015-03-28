@@ -120,8 +120,6 @@ namespace idboard_v1.ViewModel
             navigationService.Configure("Messages", typeof(views.Message));
             navigationService.Configure("AbsenceLate", typeof(views.AbsenceLate));
 
-            // navigationService.Configure("key1", typeof(OtherPage1));
-            // navigationService.Configure("key2", typeof(OtherPage2));
 
             return navigationService;
         }

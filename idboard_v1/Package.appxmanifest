@@ -3,7 +3,7 @@
   <Identity Name="9ef342e2-dd06-4883-874a-040afa5b8d6b" Publisher="CN=Alexandre" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="9ef342e2-dd06-4883-874a-040afa5b8d6b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>idboard_v1</DisplayName>
+    <DisplayName>IDBoard</DisplayName>
     <PublisherDisplayName>Alexandre TEIXEIRA</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

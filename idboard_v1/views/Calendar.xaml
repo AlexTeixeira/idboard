@@ -305,12 +305,12 @@
     <Page.BottomAppBar>
         <CommandBar IsOpen="false">
             <CommandBar.PrimaryCommands>
-                <!--<AppBarButton Label="Previous" IsCompact="True" Icon="Back" />-->
+                <!--<AppBarButton Visibility="Collapsed" Label="Previous" IsCompact="True" Icon="Back" />-->
                 <!--<AppBarButton Label="Navigation" IsCompact="True" Icon="List" 
                                Command="{Binding Info.DisplayMenu}" 
                               />-->
                 <AppBarButton Label="Next" IsCompact="True" Icon="Forward" 
-                              Command="{Binding Info.ChangePage}" 
+                              Command="{Binding ChangePage}" 
                               CommandParameter="Offers"
                               />
             </CommandBar.PrimaryCommands>

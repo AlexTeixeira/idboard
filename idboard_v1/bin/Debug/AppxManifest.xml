@@ -10,7 +10,7 @@
   <Identity Name="9ef342e2-dd06-4883-874a-040afa5b8d6b" Publisher="CN=Alexandre" Version="1.0.0.0" ProcessorArchitecture="neutral" />
   <mp:PhoneIdentity PhoneProductId="9ef342e2-dd06-4883-874a-040afa5b8d6b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>idboard_v1</DisplayName>
+    <DisplayName>IDBoard</DisplayName>
     <PublisherDisplayName>Alexandre TEIXEIRA</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -50,13 +50,12 @@
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>CLRHost.dll</Path>
-        <ActivatableClass ActivatableClassId="BackgroundTask.Class1" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="BackgroundTask.BackgroundMessage" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="BackgroundTask.Model.MessageFolder.Result" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.CoursesFolder.CoursesInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.CoursesFolder.Course" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="BackgroundTask.Model.MessageFolder.MessagesInfo" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="BackgroundTask.Model.MessageFolder.MyMessages" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="BackgroundTask.Model.CoursesFolder.Course" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="BackgroundTask.Model.CoursesFolder.CoursesInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.Model.MessageFolder.Result" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackgroundTask.BackgroundMessage" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>
